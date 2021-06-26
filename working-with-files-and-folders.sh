@@ -21,6 +21,8 @@ if [ "$code" -eq "0" ]; then
     echo "The number of symbolic links is: $symlink"
     symlink=$(sudo find "$home" -type s | wc -l)
     echo "The number of sockets is: $symlink"
+    total=$(sudo du /home/shirhan/ -h --max-depth=0 | awk -F  "\t" '/1/ {print $1}')
+    echo "The total amount of data that the user has is: $total"
 else
     echo "Not found user"
 fi
